@@ -31,6 +31,8 @@ app.get("/", function (req, res){
     res.send("Desenvolvimento de Aplicações WEB II");
 });
 
+require("./routes/produto.routes")(app);
+
 app.listen(8000, function(req,res){
     console.log("App rodando na porta 8000");
 });
