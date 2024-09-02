@@ -44,7 +44,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Produto.findByPk(id)
+    Produto.findByPk(id, {include: ["loja"]})
     .then((data) => {
         if (data) {
             res.send(data);
@@ -78,7 +78,7 @@ exports.update = (req,res) => {
             });
         }
     })
-    .cacth((err) => {
+    .catch((err) => {
         res.status(500).send({
             message: err.message || "Erro em atualizar o Produto via id=" + id,
         });
